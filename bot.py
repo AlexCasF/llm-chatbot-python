@@ -2,36 +2,23 @@ import streamlit as st
 from utils import write_message
 from agent import generate_response
 
-# tag::setup[]
-# Page Config
-st.set_page_config("Ebert", page_icon=":movie_camera:")
-# end::setup[]
+st.set_page_config("WiGPTia", page_icon="🦾")
 
-# tag::session[]
-# Set up Session State
 if "messages" not in st.session_state:
     st.session_state.messages = [
-        {"role": "assistant", "content": "Hi, I'm the GraphAcademy Chatbot!  How can I help you?"},
+        {"role": "assistant", "content": "Welcome to WiGPTia, the front desk of our GPT warehouse.  How can I help you?"},
     ]
 
 def handle_submit(message):
-    with st.spinner('Thinking...'):
+    with st.spinner('Browsing indexed GPTs...'):
 
         response = generate_response(message)
         write_message('assistant', response)
 
-
-# tag::chat[]
 with st.container():
-    # Display messages in Session State
     for message in st.session_state.messages:
         write_message(message['role'], message['content'], save=False)
 
-    # Handle any user input
-    if prompt := st.chat_input("What is up?"):
-        # Display user message in chat message container
-        write_message('user', prompt)
-
-        # Generate a response
+    if prompt := st.chat_input("Type in your question or the task you need help with"):# Display user message in chat message container
+        write_message('user', prompt)# Generate a response
         handle_submit(prompt)
-# end::chat[]
