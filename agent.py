@@ -1,5 +1,6 @@
 from langchain.agents import AgentType, initialize_agent
 from llm import llm
+from graph import graph
 from promptlib import receptionist
 from langchain.chains.conversation.memory import ConversationBufferWindowMemory
 
@@ -21,11 +22,5 @@ agent = initialize_agent(
 )
 
 def generate_response(prompt):
-    """
-    Create a handler that calls the Conversational agent
-    and returns a response to be rendered in the UI
-    """
-
     response = agent(prompt)
-
     return response['output']

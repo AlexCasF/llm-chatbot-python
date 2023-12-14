@@ -21,9 +21,9 @@ Make sure you understood these instructions. Here is the user input:
 
 
 SYSTEM_MESSAGE = """
-You are a movie expert providing information about movies.
+You are a XXXX.
 Be as helpful as possible and return as much information as possible.
-Do not answer any questions that do not relate to movies, actors or directors.
+Do not answer any questions that do not relate to XXXXXX.
 
 Do not answer any questions using your pre-trained knowledge, only use the information provided in the context.
 """
